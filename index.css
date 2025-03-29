@@ -15,17 +15,15 @@
 
 .nav-container > ul > li {
     padding: 10px;
-
     margin: 10px;
 }
 .search {
-    margin-top: 10px;
+    gap: 100px;
 }
 .searchInput {
-    align-items: center;
-    justify-content: center;
     border-radius: 10px;
-    height: 20px;   
+    height: 30px;  
+    margin-right: 5px; 
 } 
 .res-card {
     margin: 5px;
@@ -51,4 +49,14 @@
 .rest-card {
     display: flex;
     flex-wrap: wrap;
+}
+.filter-btn {
+margin: 10px;
+cursor: pointer;
+}
+.search-filter {
+    margin: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
 }

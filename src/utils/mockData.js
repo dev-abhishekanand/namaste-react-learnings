@@ -1,43 +1,4 @@
-import React from "react";
-import ReactDOM from "react-dom/client";
-
-const Header = () => {
-  return (
-    <div className="header">
-      <div className="logo-container">
-        <img className="logo" alt="res-logo" />
-      </div>
-      <div className="nav-container">
-        <ul>
-          <li>Home </li>
-          <li>About Us </li>
-          <li>Cart </li>
-          <li>Contact Us </li>
-        </ul>
-      </div>
-    </div>
-  );
-};
-
-const RestrauntCard = (props) => {
-  const { resData } = props;
-  return (
-    <div className="rest-card">
-      {resData?.map((res) => (
-        <div key={res.id} className="res-card">
-          <img className="res-logo" src={res.image} alt="res-logo" />
-          <h3>{res.name}</h3>
-          <p>{res.cuisine}</p>
-          <p>rating: {res.rating}</p>
-          <p>Cost of Two: {res.costForTwo}</p>
-          <p>Delivery In: {res.deliveryTime}</p>
-        </div>
-      ))}
-    </div>
-  );
-};
-
-const resList = [
+export const resList = [
   {
     id: 1,
     name: "The Gourmet Kitchen",
@@ -204,29 +165,3 @@ const resList = [
       "https://media.istockphoto.com/id/855894476/photo/pilaf-rice-with-meat-and-vegetables.jpg?s=612x612&w=0&k=20&c=U4XShbSRM7DA-TdaeZzIPVkCwI3GEE0A81zvBthVJGw=",
   },
 ];
-
-const Body = () => {
-  return (
-    <div className="body">
-      <div className="search">
-        <input type="text" placeholder="Search..." className="searchInput" />
-      </div>
-      <div className="res-container">
-        <RestrauntCard resData={resList} />
-      </div>
-    </div>
-  );
-};
-const Applayout = () => {
-  return (
-    <div className="app">
-      <Header />
-      <Body />
-      {/* <Footer /> */}
-    </div>
-  );
-};
-
-const root = ReactDOM.createRoot(document.getElementById("root"));
-
-root.render(<Applayout />);
