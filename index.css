@@ -24,7 +24,12 @@
     border-radius: 10px;
     height: 30px;  
     margin-right: 5px; 
+    cursor: pointer;
 } 
+.rest-card {
+    display: flex;
+    flex-wrap: wrap;
+}
 .res-card {
     margin: 5px;
     padding: 5px; 
@@ -34,22 +39,22 @@
     background-color: rgb(219, 224, 223);
 } 
 
+
+
 .res-card:hover {
     border: 1px solid rgb(5, 82, 71);
     cursor: pointer;
+}
+.res-logo {
+    /* height: 100px; */
+    width: 250px;
 }
 .res-container {
     display: flex;
     flex-wrap: wrap;
 }
-.res-logo {
-    /* height: 100px; */
-    width: 200px;
-}
-.rest-card {
-    display: flex;
-    flex-wrap: wrap;
-}
+
+
 .filter-btn {
 margin: 10px;
 cursor: pointer;
@@ -59,4 +64,24 @@ cursor: pointer;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
+}
+.shimmer-card {
+    margin: 10px;
+    padding: 5px; 
+     height: 300px;
+    width: 200px;
+    border-radius: 5px;
+    background-color: rgb(223, 223, 223);
+}
+.shimmer-container{
+    display: flex;
+    flex-wrap: wrap;
+}
+.login-btn {
+    margin: 2px 8px;
+    padding: 5px;
+cursor: pointer;
+background-color: rgb(3, 54, 33);
+color: white;
+
 }
