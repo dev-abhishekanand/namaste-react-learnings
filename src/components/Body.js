@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { resList } from "../utils/mockData";
 import { RestrauntCard } from "./RestrauntCard";
 import Shimmer from "./Shimmer";
+import { Link } from "react-router";
 
 const Body = () => {
   const [restraunts, setRestraunts] = useState([]);
@@ -77,9 +78,11 @@ const Body = () => {
 
       <div className="res-container">
         {filteredRestraunt?.map((res) => {
-          // console.log(res);
-          return <RestrauntCard key={res.info.id} resData={res.info} />;
-          // console.log("restertyrtyrytr,", res.info);
+          return (
+            <Link to={"/restaurant/" + res.info.id} key={res.info.id}>
+              <RestrauntCard resData={res.info} />
+            </Link>
+          );
         })}
       </div>
     </div>
