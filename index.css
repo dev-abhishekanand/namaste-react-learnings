@@ -85,3 +85,21 @@ background-color: rgb(3, 54, 33);
 color: white;
 
 }
+
+.user{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 10px;
+    padding: 10px;
+    border: 1px solid black;
+}
+.user-class{
+    /* display: flex; */
+    /* justify-content: space-between; */
+    align-items: center;
+    margin: 10px;
+    padding: 10px;
+    border: 1px solid rgb(123, 210, 245);
+    background-color: rgb(150, 212, 223);
+}
