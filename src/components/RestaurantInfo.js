@@ -2,24 +2,28 @@ import React, { useEffect, useState } from "react";
 import Shimmer from "./Shimmer";
 import { RESTAURANT_INFO_URL } from "../utils/constants";
 import { useParams } from "react-router";
+import useRestaurantMenu from "../utils/useRestaurantMenu";
 
 const RestaurantInfo = () => {
-  const [resInfo, setResInfo] = useState(null);
+  // const [resInfo, setResInfo] = useState(null);
   const { resId } = useParams();
+
+  const resInfo = useRestaurantMenu(resId);
+  console.log("resInfo", resInfo);
   //   console.log("resInfo", resId);
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const data = await fetch(RESTAURANT_INFO_URL + resId);
-        const apiData = await data.json();
-        setResInfo(apiData.data);
-        console.log(apiData);
-      } catch (error) {
-        console.error("Error fetching restaurant data:", error);
-      }
-    };
-    fetchData();
-  }, []);
+  // useEffect(() => {
+  //   const fetchData = async () => {
+  //     try {
+  //       const data = await fetch(RESTAURANT_INFO_URL + resId);
+  //       const apiData = await data.json();
+  //       setResInfo(apiData.data);
+  //       console.log(apiData);
+  //     } catch (error) {
+  //       console.error("Error fetching restaurant data:", error);
+  //     }
+  //   };
+  //   fetchData();
+  // }, []);
 
   // if (resInfo === null) return <Shimmer />;
 
@@ -27,7 +31,7 @@ const RestaurantInfo = () => {
     return <Shimmer />;
   }
   const { name, avgRating, costForTwoMessage, cuisines, sla } =
-    resInfo?.cards[2]?.card?.card?.info;
+    resInfo?.cards[2]?.card?.card?.info || {};
 
   //   const categories =
   //     resInfo?.cards[4]?.groupedCard?.cardGroupMap.REGULAR.cards[1].card.card
