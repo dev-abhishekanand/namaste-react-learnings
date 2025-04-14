@@ -62,27 +62,33 @@ const Body = () => {
     <Shimmer />
   ) : (
     <div className="body">
-      <div className="search-filter">
-        <div className="search">
+      <div className="flex p-5 m-5 bg-yellow-400 justify-between rounded-lg">
+        <div>
           <input
             type="text"
             placeholder="Search..."
-            className="searchInput"
+            className=" border-solid border-black border-2 rounded-lg p-2"
             value={searchtext}
             onChange={handleSearchChange}
           />
-          <button className="searchInput" onClick={handleSearch}>
+          <button
+            className=" bg-green-900 px-5 py-2 m-5 text-white rounded-lg cursor-pointer"
+            onClick={handleSearch}
+          >
             Search
           </button>
         </div>
         <div className="rating-button">
-          <button className="filter-btn" onClick={handleFilterBestRestraunt}>
+          <button
+            className=" bg-green-900 px-5 py-2 m-5 text-white rounded-lg cursor-pointer"
+            onClick={handleFilterBestRestraunt}
+          >
             Top Rated Restraunt
           </button>
         </div>
       </div>
 
-      <div className="res-container">
+      <div className="flex flex-wrap ">
         {filteredRestraunt?.map((res) => {
           return (
             <Link to={"/restaurant/" + res.info.id} key={res.info.id}>

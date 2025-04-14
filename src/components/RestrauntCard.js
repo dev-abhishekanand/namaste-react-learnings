@@ -12,25 +12,28 @@ export const RestrauntCard = ({ resData }) => {
       ? cuisines.slice(0, 3).join(", ") + "..."
       : cuisines.join(", ");
   return (
-    <div className="rest-card">
-      <div className="res-card">
-        <img
-          className="res-logo"
-          src={
-            cloudinaryImageId
-              ? `${cloudinaryBaseUrl}/${cloudinaryImageId}`
-              : "https://media.istockphoto.com/id/1299079243/photo/food-for-healthy-brain.jpg?s=612x612&w=0&k=20&c=nEYOuCgPDUf5ftWUBB5Y61ZuqzRy3QJJ0QoI-j7tjUY="
-          }
-          alt="res-logo"
-        />
-        <h3>{name}</h3>
-        <p title={cuisines.join(", ")}>{displayCuisines}</p>
-
-        <p>rating: {avgRating}</p>
-        <p> {costForTwo}</p>
-        <p>Delivery In: {sla.slaString}</p>
+    // <div className="rest-card">
+    <div className="m-5 p-5 w-52 shadow-lg bg-gray-100 rounded-lg hover:bg-emerald-900 hover:border-1 hover:border-gray-300 hover:text-white">
+      <img
+        className="rounded-lg"
+        src={
+          cloudinaryImageId
+            ? `${cloudinaryBaseUrl}/${cloudinaryImageId}`
+            : "https://media.istockphoto.com/id/1299079243/photo/food-for-healthy-brain.jpg?s=612x612&w=0&k=20&c=nEYOuCgPDUf5ftWUBB5Y61ZuqzRy3QJJ0QoI-j7tjUY="
+        }
+        alt="res-logo"
+      />
+      <div className=" font-bold py-2 flex justify-between">
+        <p>{name}</p>
+        <p>{avgRating}💚</p>
       </div>
+      <p title={cuisines.join(", ")}>{displayCuisines}</p>
+
+      {/* <p>rating: {avgRating}</p> */}
+      <p> {costForTwo}</p>
+      <p>Delivery In: {sla.slaString}</p>
     </div>
+    // </div>
   );
 };
 export default RestrauntCard;
