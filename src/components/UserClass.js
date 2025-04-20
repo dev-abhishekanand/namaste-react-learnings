@@ -3,7 +3,7 @@ import React from "react";
 class UserClass extends React.Component {
   constructor(props) {
     super(props);
-    console.log("child constructor");
+    // console.log("child constructor");
     // this.state = {
     //   count: 0,
     //   count2: 5,
@@ -26,18 +26,18 @@ class UserClass extends React.Component {
     this.setState({
       userInfo: data,
     });
-    console.log("data", data);
-    console.log("child componentDidMount");
+    // console.log("data", data);
+    // console.log("child componentDidMount");
   }
   componentDidUpdate() {
-    console.log("child componentDidUpdate");
+    // console.log("child componentDidUpdate");
   }
 
   componentWillUnmount() {
-    console.log("child componentWillUnmount");
+    // console.log("child componentWillUnmount");
   }
   render() {
-    console.log("child render");
+    // console.log("child render");
     const { name, login, organizations_url } = this.state.userInfo;
 
     // console.log(bio, location);

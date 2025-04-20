@@ -1,18 +1,19 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { LOGO_URL } from "../utils/constants";
 import { Link } from "react-router";
-import { useOnlineStatus } from "../utils/useOnlineStatus";
+import { useOnlineStatus } from "../hooks/useOnlineStatus";
+import UserContext from "../utils/UserContext";
 
 const Header = () => {
   const [logintext, setLogintext] = useState("login");
-  useEffect(() => {
-    console.log("useEffect called");
-  }, []);
+  // useEffect(() => {
+  //   console.log("useEffect called");
+  // }, []);
   const handleLogin = (e) => {
     logintext === "login" ? setLogintext("logout") : setLogintext("login");
   };
-
-  const onlineStatus = useOnlineStatus();
+  const userData = useContext(UserContext); // useContext
+  const onlineStatus = useOnlineStatus(); // custom hook
   return (
     <div className="flex justify-between shadow-lg bg-emerald-950 text-white">
       <div className="logo-container">
@@ -39,6 +40,7 @@ const Header = () => {
           <button className="login-btn" onClick={handleLogin}>
             {logintext}
           </button>
+          <li>{userData?.loggedInUser}</li>
         </ul>
       </div>
     </div>

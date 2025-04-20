@@ -1,10 +1,12 @@
+import { useContext } from "react";
 import { CDN_URL } from "../utils/constants";
+import UserContext from "../utils/UserContext";
 export const RestrauntCard = ({ resData }) => {
   // console.log("resData", resData);
   const { name, cloudinaryImageId, cuisines, avgRating, costForTwo, sla } =
     resData;
   // console.log(cloudinaryImageId);
-
+  const loggedInUserData = useContext(UserContext);
   const cloudinaryBaseUrl =
     "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660";
   const displayCuisines =
@@ -32,6 +34,7 @@ export const RestrauntCard = ({ resData }) => {
       {/* <p>rating: {avgRating}</p> */}
       <p> {costForTwo}</p>
       <p>Delivery In: {sla.slaString}</p>
+      <p className="font-bold">User:: {loggedInUserData?.loggedInUser}</p>
     </div>
     // </div>
   );
