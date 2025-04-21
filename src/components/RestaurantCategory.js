@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import CategoryItemList from "./CategoryItemList";
+import RestaurantCategoryItemList from "./RestaurantCategoryItemList";
 
 const RestaurantCategory = ({ category, showItems, setShowIndex }) => {
   // const [expanded, setExpanded] = useState(false);
@@ -16,7 +16,9 @@ const RestaurantCategory = ({ category, showItems, setShowIndex }) => {
           <span>{showItems ? "↓" : "↑"}</span>
         </div>
         <div className="flex justify-center">
-          {showItems && <CategoryItemList items={category?.itemCards} />}
+          {showItems && (
+            <RestaurantCategoryItemList items={category?.itemCards} />
+          )}
         </div>
       </div>
     </div>

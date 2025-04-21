@@ -25,11 +25,11 @@ const RestaurantInfo = () => {
   //   fetchData();
   // }, []);
 
-  // if (resInfo === null) return <Shimmer />;
+  if (resInfo === null) return <Shimmer />;
 
-  if (!resInfo) {
-    return <Shimmer />;
-  }
+  // if (!resInfo) {
+  //   return <Shimmer />;
+  // }
   const { name, avgRating, costForTwoMessage, cuisines, sla } =
     resInfo?.cards[2]?.card?.card?.info || {};
 

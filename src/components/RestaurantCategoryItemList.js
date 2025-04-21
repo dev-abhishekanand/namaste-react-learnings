@@ -1,7 +1,13 @@
 import React from "react";
 import { CDN_URL } from "../utils/constants";
+import { useDispatch } from "react-redux";
+import { addItem } from "../utils/CartSlice";
 
-const CategoryItemList = ({ items }) => {
+const RestaurantCategoryItemList = ({ items }) => {
+  const dispatch = useDispatch();
+  const handleAddItemtoCart = (item) => {
+    dispatch(addItem(item));
+  };
   console.log("items", items);
   const cloudinaryBaseUrl =
     "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660";
@@ -36,7 +42,10 @@ const CategoryItemList = ({ items }) => {
               alt={item?.card?.info?.name}
               className="w-30 h-auto rounded-lg"
             />
-            <button className="bg-orange-400 text-white rounded-lg p-2 w-1/2 mx-6 hover:bg-orange-500 cursor-pointer">
+            <button
+              className="bg-orange-400 text-white rounded-lg p-2 w-1/2 mx-6 hover:bg-orange-500 cursor-pointer"
+              onClick={() => handleAddItemtoCart(item)}
+            >
               Add+
             </button>
           </div>
@@ -46,4 +55,4 @@ const CategoryItemList = ({ items }) => {
   );
 };
 
-export default CategoryItemList;
+export default RestaurantCategoryItemList;

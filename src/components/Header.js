@@ -3,6 +3,7 @@ import { LOGO_URL } from "../utils/constants";
 import { Link } from "react-router";
 import { useOnlineStatus } from "../hooks/useOnlineStatus";
 import UserContext from "../utils/UserContext";
+import { useSelector } from "react-redux";
 
 const Header = () => {
   const [logintext, setLogintext] = useState("login");
@@ -14,6 +15,8 @@ const Header = () => {
   };
   const userData = useContext(UserContext); // useContext
   const onlineStatus = useOnlineStatus(); // custom hook
+
+  const cartItems = useSelector((store) => store.cart.items); // redux store
   return (
     <div className="flex justify-between shadow-lg bg-emerald-950 text-white">
       <div className="logo-container">
@@ -29,7 +32,7 @@ const Header = () => {
             <Link to="/about">About</Link>
           </li>
           <li>
-            <Link to="/cart">Cart</Link>
+            <Link to="/cart">Cart- {cartItems.length}</Link>
           </li>
           <li>
             <Link to="/grocery">Grocery</Link>
